@@ -1,9 +1,14 @@
 import { RouteRecordRaw } from "vue-router";
 import UserLayout from "@/layouts/UserLayout.vue";
+import NoAuthView from "@/views/NoAuthView.vue";
+import AboutView from "@/views/AboutView.vue";
 import UserLoginView from "@/views/user/UserLoginView.vue";
 import UserRegisterView from "@/views/user/UserRegisterView.vue";
-import NoAuthView from "@/views/NoAuthView.vue";
-import QuestionsView from "@/views/question/QuestionsView.vue";
+import HomeView from "@/views/HomeView.vue";
+import AdminView from "@/views/Admin/AdminView.vue";
+import accessEnum from "@/access/accessEnum";
+import ExampleView from "@/views/ExampleView.vue";
+import AddQuestionView from "@/views/Question/AddQuestionView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -29,14 +34,45 @@ export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "主页",
-    component: QuestionsView,
+    component: HomeView,
+  },
+  {
+    path: "/question/add",
+    name: "创建题目",
+    component: AddQuestionView,
+  },
+  {
+    path: "/about",
+    name: "关于",
+    component: AboutView,
   },
   {
     path: "/noAuth",
     name: "无权限",
     component: NoAuthView,
+    //
     meta: {
-      hideInMenu: true,
+      // hideInMenu: true,
+    },
+  },
+  {
+    path: "/editor/example",
+    name: "编辑器示例",
+    component: ExampleView,
+    //
+    meta: {
+      // hideInMenu: true,
+      access: accessEnum.ADMIN,
+    },
+  },
+  {
+    path: "/admin",
+    name: "管理页",
+    component: AdminView,
+    //
+    meta: {
+      // hideInMenu: true,
+      access: accessEnum.ADMIN,
     },
   },
 ];

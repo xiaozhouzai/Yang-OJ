@@ -42,7 +42,6 @@
 <script>
 import GlobalHeader from "@/components/GlobalHeader";
 
-
 export default {
   components: { GlobalHeader },
 };

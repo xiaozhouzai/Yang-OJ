@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <!-- 如果访问的路径以/user开头那么直接使用默认布局  实现多布局 -->
     <template v-if="route.path.startsWith('/user')">
+      <!-- 默认布局 -->
       <router-view />
     </template>
     <template v-else>
